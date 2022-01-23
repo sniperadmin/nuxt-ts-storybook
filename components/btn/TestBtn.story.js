@@ -1,5 +1,5 @@
 import TestBtn from './TestBtn.vue'
-import readme from '../../README.md'
+import readme from './TestBtn.md'
 import { withTests } from '@storybook/addon-jest';
 import results from '@/.jest-test-results.json';
 
@@ -24,7 +24,7 @@ export default {
   parameters: {
     docs: {
       source: {
-        code: '<TestBtn />'
+        code: '<TestBtn :color="color" />'
       },
       description: {
         component: readme,

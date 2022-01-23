@@ -1,7 +1,7 @@
 <template>
   <v-btn data-test="btn" :color="color">
     <slot>
-      btn name
+      {{ color }}
     </slot>
   </v-btn>
 </template>
