@@ -59,6 +59,9 @@ export default {
     stories: [
       '~/components/**/*.story.@(ts|js)'
     ],
+    addons: [
+      '@storybook/addon-jest'
+    ],
     decorators: [
       // VApp decorator for Vuetify
       `<v-app id='vuetify-storybook-decorator'><div><story/></div></v-app>`,

@@ -1,5 +1,7 @@
 import TestBtn from './TestBtn.vue'
 import readme from '../../README.md'
+import { withTests } from '@storybook/addon-jest';
+import results from '@/.jest-test-results.json';
 
 export default {
   title: 'TestBtn',
@@ -14,6 +16,7 @@ export default {
     }
   },
   decorators: [
+    withTests({ results }),
     () => ({
       template: `<v-row justify="center"><v-col><story /></v-col></v-row>`
     })
@@ -37,3 +40,6 @@ const BtnTemplate = (args, { argTypes }) => ({
 })
 
 export const Primary = BtnTemplate.bind({})
+Primary.parameters = {
+  jest: ['TestBtn.spec.ts'],
+}

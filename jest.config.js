@@ -10,11 +10,13 @@ module.exports = {
     'vue',
     'json'
   ],
+  modulePathIgnorePatterns: ['node_modules', 'jest-test-results.json'],
   transform: {
     '^.+\\.ts$': 'ts-jest',
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest'
   },
+  testMatch: ['<rootDir>/components/**/*.(test|spec).@(js|ts)'],
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',

@@ -1,6 +1,8 @@
 <template>
-  <v-btn :color="color">
-    meow
+  <v-btn data-test="btn" :color="color">
+    <slot>
+      btn name
+    </slot>
   </v-btn>
 </template>
 
@@ -12,7 +14,8 @@
         type:String,
         default: 'primary'
       }
-    }
+    },
+    data: () => ({})
   }
 </script>
 
