@@ -24,7 +24,7 @@ export default {
   parameters: {
     docs: {
       source: {
-        code: '<TestBtn :color="color" />'
+        code: `<TestBtn :color="color" />`
       },
       description: {
         component: readme,

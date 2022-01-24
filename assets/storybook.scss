@@ -2,7 +2,8 @@
 
   // Remove the storybook full height of all components
   .v-application--wrap {
-    // min-height: unset;
-    // background-color: transparent;
+    min-height: unset;
+    // min-width: unset;
+    background-color: white;
   }
 }
