@@ -3,6 +3,9 @@ import readme from './TestBtn.md'
 import { withTests } from '@storybook/addon-jest';
 import results from '@/.jest-test-results.json';
 
+import { fireEvent, within, screen, userEvent } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
 export default {
   title: 'TestBtn',
   component: TestBtn,
@@ -10,6 +13,7 @@ export default {
     color: 'primary'
   },
   argTypes: {
+    onClick: { action: true },
     color: {
       type: 'select',
       options: ['primary', 'secondary', 'info', 'warning', 'error', 'success'],
@@ -45,3 +49,9 @@ Primary.parameters = {
   jest: ['TestBtn.spec.ts'],
 }
 
+Primary.play = async ({ args, canvasElement }) => {
+  // const btn = screen.getByTestId('btn')
+  const canvas = within(canvasElement);
+  await fireEvent.click(canvas.getByTestId('btn'))
+  await expect(args.onClick).toHaveBeenCalledTimes(1)
+}
