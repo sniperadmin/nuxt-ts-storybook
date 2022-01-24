@@ -60,12 +60,19 @@ export default {
       '~/components/**/*.story.@(ts|js)'
     ],
     addons: [
-      '@storybook/addon-jest'
+      '@storybook/addon-jest',
+      '@storybook/addon-viewport',
+      'storybook-dark-mode/register'
     ],
     decorators: [
       // VApp decorator for Vuetify
-      `<v-app id='vuetify-storybook-decorator'><div><story/></div></v-app>`,
+      `<v-app dark id='vuetify-storybook-decorator'><story/></v-app>`,
     ],
+    parameters: {
+      darkMode: {
+        current: 'dark'
+      }
+    },
     webpackFinal(config) {
       return config;
     },
@@ -74,8 +81,12 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    // treeShake: true,
+    options: {
+      customProperties: true,
+    },
     theme: {
-      dark: false,
+      dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,

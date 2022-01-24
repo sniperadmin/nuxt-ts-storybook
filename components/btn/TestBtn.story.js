@@ -33,6 +33,7 @@ export default {
   }
 }
 
+
 const BtnTemplate = (args, { argTypes }) => ({
   components: { TestBtn },
   props: Object.keys(argTypes),
@@ -43,3 +44,4 @@ export const Primary = BtnTemplate.bind({})
 Primary.parameters = {
   jest: ['TestBtn.spec.ts'],
 }
+
