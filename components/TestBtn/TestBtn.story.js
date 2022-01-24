@@ -50,8 +50,9 @@ Primary.parameters = {
 }
 
 Primary.play = async ({ args, canvasElement }) => {
-  // const btn = screen.getByTestId('btn')
-  const canvas = within(canvasElement);
-  await fireEvent.click(canvas.getByTestId('btn'))
+  const btn = screen.getByTestId('btn')
+  await userEvent.click(btn)
+  // const canvas = within(canvasElement);
+  // await fireEvent.click(canvas.getByTestId('btn'))
   await expect(args.onClick).toHaveBeenCalledTimes(1)
 }

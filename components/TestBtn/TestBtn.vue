@@ -1,13 +1,15 @@
 <template>
-  <v-btn data-test="btn" :color="color">
+  <v-btn data-test="btn" :color="color" @click="$emit('click', $event)">
     <slot>
       {{ color }}
     </slot>
   </v-btn>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+import Vue from 'vue';
+
+  export default Vue.extend({
     name: 'TestBtn',
     props: {
       color: {
@@ -16,7 +18,7 @@
       }
     },
     data: () => ({})
-  }
+  })
 </script>
 
 <style lang="scss" scoped>
