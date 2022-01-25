@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import i18n from './config/i18n'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -50,26 +51,26 @@ export default {
   ],
 
   i18n: {
-    locales: ['en', 'fr', 'es', 'ar'],
-    defaultLocale: 'en',
-    // vueI18nLoader: true,
-    vueI18n: {
-      fallbackLocale: 'en',
-      messages: {
-        en: {
-          welcome: 'Welcome',
-        },
-        fr: {
-          welcome: 'Bienvenue',
-        },
-        es: {
-          welcome: 'Bienvenido',
-        },
-        ar: {
-          welcome: 'أهلا وسهلا',
-        },
+    locales: [
+      {
+        code: 'en',
+        name: 'English'
       },
-    },
+      {
+        code: 'fr',
+        name: 'Francais'
+      },
+      {
+        code: 'es',
+        name: 'Espaniol'
+      },
+      {
+        code: 'ar',
+        name: 'العربية'
+      }
+    ],
+    defaultLocale: 'en',
+    vueI18n: i18n
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
