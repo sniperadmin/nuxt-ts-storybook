@@ -17,7 +17,7 @@ export default {
         code: `<ELogo />`
       },
       description: {
-        // component: LogoDocs,
+        component: LogoDocs,
       }
     }
   }
