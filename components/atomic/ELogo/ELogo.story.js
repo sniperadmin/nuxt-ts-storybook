@@ -1,8 +1,8 @@
-import ELogo from './ELogo.vue'
-// import LogoDocs from './ELogo.md'
+import ELogo from './Index.vue'
+import LogoDocs from './ELogo.md'
 
 import { withTests } from '@storybook/addon-jest';
-// import results from '@/.jest-test-results.json';
+import results from '@/.jest-test-results.json';
 
 export default {
   title: 'ELogo',
@@ -10,7 +10,7 @@ export default {
   args: {},
   argTypes: {},
   decorators: [
-    // withTests({ results }),
+    withTests({ results }),
     () => ({
       template: `<story />`
     })
@@ -34,3 +34,6 @@ const LogoTemp = (args, { }) => ({
 })
 
 export const Logo = LogoTemp.bind({})
+Logo.parameters = {
+  jest: ['ELogo.spec.ts']
+}

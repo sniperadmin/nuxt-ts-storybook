@@ -10,8 +10,8 @@
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
     "lintfix": "npm run lint:js -- --fix",
-    "test": "jest",
-    "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
+    "test": "jest --runInBand --no-cache",
+    "test:generate-output": "jest --runInBand --no-cache --json --outputFile=.jest-test-results.json",
     "storybook": "npx nuxt storybook"
   },
   "dependencies": {

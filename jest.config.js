@@ -16,11 +16,15 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest'
   },
-  testMatch: ['<rootDir>/components/**/*.(test|spec).@(js|ts)'],
+  testMatch: [
+    '<rootDir>/test/**/*.(test|spec).@(js|ts)',
+    '<rootDir>/components/**/*.(test|spec).@(js|ts)'
+  ],
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',
     '<rootDir>/pages/**/*.vue'
   ],
-  testEnvironment: 'jsdom'
+  testEnvironment: 'jsdom',
+  setupFiles: ['<rootDir>/test/index.ts'],
 }

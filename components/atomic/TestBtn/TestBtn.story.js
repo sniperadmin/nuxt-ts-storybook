@@ -1,8 +1,9 @@
-import TestBtn from './TestBtn.vue'
+import TestBtn from './Index.vue'
 import readme from './TestBtn.md'
 import { withTests } from '@storybook/addon-jest';
 import results from '@/.jest-test-results.json';
 
+// import { action } from '@storybook/addon-actions';
 import { fireEvent, within, screen, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
@@ -10,10 +11,24 @@ export default {
   title: 'TestBtn',
   component: TestBtn,
   args: {
-    color: 'primary'
+    color: 'primary',
+    depressed: false,
+    icon: false,
+    outlined: false,
+    plain: false,
+    rounded: false,
+    fab: false,
+    text: false,
+    block: false,
+    disabled: false,
+    large: false,
+    loading: false,
+    small: false,
+    xLarge: false,
+    xSmall: false,
   },
   argTypes: {
-    onClick: { action: true },
+    click: { action: true },
     color: {
       type: 'select',
       options: ['primary', 'secondary', 'info', 'warning', 'error', 'success'],
@@ -41,7 +56,7 @@ export default {
 const BtnTemplate = (args, { argTypes }) => ({
   components: { TestBtn },
   props: Object.keys(argTypes),
-  template: `<TestBtn :color="color" />`,
+  template: `<TestBtn v-bind="$props" v-on="$props" />`,
 })
 
 export const Primary = BtnTemplate.bind({})
@@ -50,9 +65,7 @@ Primary.parameters = {
 }
 
 Primary.play = async ({ args, canvasElement }) => {
-  const btn = screen.getByTestId('btn')
+  const btn = screen.getByText('primary')
   await userEvent.click(btn)
-  // const canvas = within(canvasElement);
-  // await fireEvent.click(canvas.getByTestId('btn'))
-  await expect(args.onClick).toHaveBeenCalledTimes(1)
+  await expect(args.click).toHaveBeenCalled()
 }

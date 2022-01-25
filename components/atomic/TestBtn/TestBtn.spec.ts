@@ -2,7 +2,7 @@ import {
   shallowMount,
   createLocalVue
 } from '@vue/test-utils'
-import TestBtn from '@/components/btn/TestBtn.vue'
+import TestBtn from './Index.vue'
 
 
 let wrapper: any;
