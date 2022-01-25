@@ -55,10 +55,10 @@ export default {
   },
 
   storybook: {
-    port: 4000,
+    port: 6006,
     decorators: [
       // VApp decorator for Vuetify
-      `<v-app dark id='vuetify-storybook-decorator'><div><story/></div></v-app>`,
+      // `<v-app dark id='vuetify-storybook-decorator'><div><story/></div></v-app>`,
     ],
     parameters: {},
   },

@@ -1,7 +1,5 @@
 import TestBtn from './Index.vue'
 import readme from './TestBtn.md'
-import { withTests } from '@storybook/addon-jest';
-import results from '@/.jest-test-results.json';
 
 // import { action } from '@storybook/addon-actions';
 import { fireEvent, within, screen, userEvent } from '@storybook/testing-library';
@@ -35,9 +33,8 @@ export default {
     }
   },
   decorators: [
-    withTests({ results }),
     () => ({
-      template: `<v-row justify="center"><v-col><story /></v-col></v-row>`
+      template: `<story />`
     })
   ],
   parameters: {

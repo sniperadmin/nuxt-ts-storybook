@@ -1,16 +1,12 @@
 import ELogo from './Index.vue'
 import LogoDocs from './ELogo.md'
 
-import { withTests } from '@storybook/addon-jest';
-import results from '@/.jest-test-results.json';
-
 export default {
   title: 'ELogo',
   component: ELogo,
   args: {},
   argTypes: {},
   decorators: [
-    withTests({ results }),
     () => ({
       template: `<story />`
     })
