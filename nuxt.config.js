@@ -1,9 +1,13 @@
+import path from 'path'
 import colors from 'vuetify/es5/util/colors'
 import i18n from './config/i18n'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+
+  srcDir: 'ui',
+  modern: 'client',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -47,7 +51,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/i18n',
+    '@nuxtjs/i18n'
   ],
 
   i18n: {
@@ -85,7 +89,7 @@ export default {
       // VApp decorator for Vuetify
       // `<v-app dark id='vuetify-storybook-decorator'><div><story/></div></v-app>`,
     ],
-    parameters: {},
+    parameters: {}
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

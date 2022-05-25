@@ -77,8 +77,8 @@
 </template>
 
 <script>
-import NuxtLogo from '@/components/atomic/NuxtLogo.vue'
 import VuetifyLogo from '@/components/atomic/VuetifyLogo.vue'
+import NuxtLogo from '@/components/atomic/NuxtLogo.vue'
 
 export default {
   name: 'IndexPage',
