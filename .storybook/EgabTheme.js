@@ -1,5 +1,5 @@
 import { create } from "@storybook/theming";
-import NashLogo from '../static/nash-dev-dark.png'
+import NashLogo from '../ui/static/nash-dev-dark.png'
 
 export default create({
   base: 'dark',

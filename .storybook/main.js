@@ -9,7 +9,7 @@ module.exports = nuxifyStorybook({
   },
 
   stories: [
-    '../components/**/*.story.@(ts|js)',
+    '../ui/components/**/*.story.@(ts|js)',
   ],
   addons: [
     '@storybook/addon-jest',
