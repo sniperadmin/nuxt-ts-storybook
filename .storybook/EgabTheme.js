@@ -1,10 +1,10 @@
 import { create } from "@storybook/theming";
-import EgabLogo from '../static/egab.png'
+import NashLogo from '../static/nash-dev-dark.png'
 
 export default create({
   base: 'dark',
   brandTitle: 'Egab',
-  brandImage: EgabLogo,
+  brandImage: NashLogo,
   appBg: '#242424',
   appContentBg: '#333333',
   textColor: '#C76758',

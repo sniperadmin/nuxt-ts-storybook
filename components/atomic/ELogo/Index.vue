@@ -1,17 +1,17 @@
 <template>
   <img
     alt="Egab Logo"
-    src="/egab.png"
+    src="/nash-dev-dark.png"
   >
 </template>
 
 <script lang="ts">
-  import Vue from "vue";
+import Vue from 'vue'
 
-  export default Vue.extend({
-    name: 'ELogo',
-    data: () => ({})
-  });
+export default Vue.extend({
+  name: 'ELogo',
+  data: () => ({})
+})
 </script>
 
 <style scoped>
