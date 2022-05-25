@@ -1,9 +1,9 @@
+import { screen, userEvent } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
 import TestBtn from './Index.vue'
 import readme from './TestBtn.md'
 
 // import { action } from '@storybook/addon-actions';
-import { fireEvent, within, screen, userEvent } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
 
 export default {
   title: 'TestBtn',
@@ -23,42 +23,41 @@ export default {
     loading: false,
     small: false,
     xLarge: false,
-    xSmall: false,
+    xSmall: false
   },
   argTypes: {
     click: { action: true },
     color: {
       type: 'select',
-      options: ['primary', 'secondary', 'info', 'warning', 'error', 'success'],
+      options: ['primary', 'secondary', 'info', 'warning', 'error', 'success']
     }
   },
   decorators: [
     () => ({
-      template: `<story />`
+      template: '<story />'
     })
   ],
   parameters: {
     docs: {
       source: {
-        code: `<TestBtn :color="color" />`
+        code: '<TestBtn :color="color" />'
       },
       description: {
-        component: readme,
+        component: readme
       }
     }
   }
 }
 
-
 const BtnTemplate = (args, { argTypes }) => ({
   components: { TestBtn },
   props: Object.keys(argTypes),
-  template: `<TestBtn v-bind="$props" v-on="$props" />`,
+  template: '<TestBtn v-bind="$props" v-on="$props" />'
 })
 
 export const Primary = BtnTemplate.bind({})
 Primary.parameters = {
-  jest: ['TestBtn.spec.ts'],
+  jest: ['TestBtn.spec.ts']
 }
 
 Primary.play = async ({ args, canvasElement }) => {

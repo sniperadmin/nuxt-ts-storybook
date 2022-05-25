@@ -8,8 +8,12 @@
             "targets": {
               "node": "current"
             }
-          }
+          },
+          "jest"
         ]
+      ],
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
       ]
     }
   }
