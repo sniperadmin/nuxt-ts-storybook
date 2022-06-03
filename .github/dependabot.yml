@@ -6,6 +6,19 @@ updates:
   schedule:
     interval: daily
     time: '00:00'
+  ignore:
+    - dependency-name: 'postcss-import'
+      versions: ['13.x', '14.x']
+    - dependency-name: 'css-loader'
+      versions: ['5.x']
+    - dependency-name: 'postcss-loader'
+      versions: ['4.x']
+    - dependency-name: 'postcss-url'
+      versions: ['10.x']
+    - dependency-name: 'webpack'
+      versions: ['4.x', '5.x']
+    - dependency-name: 'vue'
+      versions: ['2.x', '3.x']
   open-pull-requests-limit: 10
   reviewers:
     - sniperadmin

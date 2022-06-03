@@ -1,0 +1,48 @@
+# # NOTE: uncomment the whole file
+# # if you want to use surge for static previews
+
+# name: 🔂 Surge PR Preview and Lighthouse
+
+# on:
+#   pull_request:
+#     types: [opened, synchronize, reopened, closed]
+
+# jobs:
+#   preview:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       # TODO: will be used if we add some secret keys in app
+#       # EXAMPLE:
+#       # - name: Make envfile
+#       #   uses: SpicyPizza/create-envfile@v1
+#       #   with:
+#       #     envkey_NUXT_ENV_MODE: demo
+#       #     envkey_NUXT_ENV_AWS_ACCESS_KEY_ID: ${{ secrets.TEST_AWS_ACCESS_KEY_ID }}
+#       #     envkey_NUXT_ENV_AWS_BUCKETNAME: ${{ secrets.TEST_ENV_AWS_BUCKETNAME }}
+#       #     envkey_NUXT_ENV_AWS_DIRNAME: ${{ secrets.TEST_ENV_AWS_DIRNAME }}
+#       #     envkey_NUXT_ENV_AWS_REGION: ${{ secrets.TEST_ENV_AWS_REGION }}
+#       #     envkey_NUXT_ENV_AWS_S3URL: ${{ secrets.TEST_ENV_AWS_S3URL }}
+#       #     envkey_NUXT_ENV_AWS_SECRET_ACCESS_KEY: ${{ secrets.TEST_AWS_SECRET_ACCESS_KEY }}
+#       #     envkey_NUXT_ENV_BASE_URL: ${{ secrets.TEST_ENV_BASE_URL }}
+#       #     file_name: .env
+#       - uses: afc163/surge-preview@v1
+#         id: preview_step
+#         with:
+#           surge_token: ${{ secrets.SURGE_TOKEN }}
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           dist: dist
+#           teardown: "true"
+#           build: |
+#             yarn
+#             yarn generate
+#       - name: Get the preview_url
+#         run: echo "url => ${{ steps.preview_step.outputs.preview_url }}"
+
+#       - name: Lighthouse
+#         uses: foo-software/lighthouse-check-action@master
+#         with:
+#           urls: "https://${{ steps.preview_step.outputs.preview_url }}"
+#           gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
+#           prCommentEnabled: true
+#           prCommentSaveOld: true

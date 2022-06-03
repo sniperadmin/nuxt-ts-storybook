@@ -1,0 +1,26 @@
+name: 🚓 Conventional commit check
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+      - master
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🏁
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      # lint commit messages
+      - name: Linting commit message
+        id: lint
+        uses: wagoid/commitlint-github-action@v4.1.12
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
