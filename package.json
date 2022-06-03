@@ -12,9 +12,36 @@
     "lintfix": "yarn lint:js -- --fix",
     "test": "jest --runInBand --no-cache",
     "test:generate-output": "jest --runInBand --no-cache --json --outputFile=.jest-test-results.json",
+    "test:dev": "npm run test:generate-output -- --watch",
     "storybook": "yarn test:generate-output && npx nuxt storybook",
-    "reset": "rm -rf node_modules yarn.lock && yarn"
+    "build-storybook": "npx nuxt storybook build",
+    "reset": "rm -rf node_modules yarn.lock && yarn",
+    "cov-json": "npx --yes istanbul-merge --out coverage.json ./coverage/coverage-final.json ./functions/coverage/coverage-final.json",
+    "cov-clover": "npx --yes istanbul report --include coverage.json --dir all-cov clover"
   },
+  "branches": [
+    "master"
+  ],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    "@semantic-release/npm",
+    "@semantic-release/github",
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md"
+        ]
+      }
+    ]
+  ],
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/i18n": "^7.2.0",
@@ -40,6 +67,12 @@
     "@nuxtjs/eslint-config-typescript": "^8.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/vuetify": "^1.12.3",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.4",
+    "@semantic-release/npm": "^9.0.1",
+    "@semantic-release/release-notes-generator": "^10.0.3",
     "@storybook/addon-interactions": "^6.5.5",
     "@storybook/addon-viewport": "^6.5.5",
     "@storybook/jest": "^0.0.10",
@@ -61,6 +94,6 @@
     "sass": "^1.52.1",
     "sass-loader": "10.1.1",
     "ts-jest": "^28.0.3",
-    "ts-node": "^10.8.0"
+    "ts-node": "^10.8.1"
   }
 }
