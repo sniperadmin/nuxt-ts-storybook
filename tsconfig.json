@@ -16,12 +16,8 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./app/*"
-      ],
-      "@/*": [
-        "./ui/*"
-      ]
+      "~/*": ["./app/*"],
+      "@/*": ["./ui/*"]
     },
     "types": [
       "@nuxt/types",

@@ -1,8 +1,9 @@
 import path from 'path'
 import colors from 'vuetify/es5/util/colors'
+import { NuxtConfig } from '@nuxt/types'
 import i18n from './config/i18n'
 
-export default {
+const nuxtConfig: NuxtConfig = {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -95,7 +96,7 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ['@/assets/variables.scss'],
     // treeShake: true,
     options: {
       // customProperties: true,
@@ -118,5 +119,30 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend (config) {
+      // @ts-ignore "Property 'buildContext' does not exist on type 'NuxtOptionsBuild'"
+      const rootDir = this.buildContext.options.rootDir
+      const joinSrc = (s: string) => path.join(rootDir, '.', s)
+
+      if (!config.resolve!.alias) {
+        throw new Error('Webpack config aliases not found!')
+      }
+
+      config.resolve!.alias['@'] = joinSrc('ui')
+      config.resolve!.alias['~'] = joinSrc('app')
+
+      config.node = {
+        fs: 'empty'
+      }
+
+      config.module!.rules.push({
+        enforce: 'pre',
+        test: /\.txt$/,
+        loader: 'raw-loader',
+        exclude: /(node_modules)/
+      })
+    }
   }
 }
+
+export default nuxtConfig

@@ -1,0 +1,23 @@
+name: Lighthouse Audit
+on:
+  push:
+    branches:
+      - master
+jobs:
+  lhci:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use yarn
+        run: yarn
+
+      - name: Build project
+        run: yarn generate
+
+      - name: run Lighthouse CI
+        run: |
+          yarn global add @lhci/cli@0.8.x
+          lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

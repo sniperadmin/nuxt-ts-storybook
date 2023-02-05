@@ -6,7 +6,7 @@ import { IPitchRepository } from '~/rest/modules/pitch/domain/Pitch.types'
 import { PitchService } from '~/rest/modules/pitch/infrastructure/PitchService'
 import { AxiosCreator, HttpService, IAxiosCreator, IHttpService } from '~/rest/presentation/http/HttpService'
 
-export function containerBuilder() {
+export function containerBuilder () {
   container.addTransient<IAxiosCreator>(AxiosCreator)
   container.addTransient<IHttpService>(HttpService)
   container.addTransient<IPitchRepository>(PitchService)
